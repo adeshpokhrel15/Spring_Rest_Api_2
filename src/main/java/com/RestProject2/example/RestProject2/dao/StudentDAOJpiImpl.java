@@ -35,6 +35,34 @@ public class StudentDAOJpiImpl implements StudentDAO {
         // return the results
         return student;
 
-//        return null;
+    }
+
+    @Override
+    public Student findById(int theId) {
+        // get student
+        Student theStudent = entitymanager.find(Student.class, theId);
+
+        // return student
+        return theStudent;
+    }
+
+    @Override
+    public Student save(Student theStudent) {
+
+        // save Student
+        Student dbStudent = entitymanager.merge(theStudent);
+
+        // return the dbStudent
+        return dbStudent;
+    }
+
+    @Override
+    public void deleteById(int theId) {
+
+        // find the id
+        Student theStudent = entitymanager.find(Student.class,theId);
+        // remove the student
+        entitymanager.remove(theStudent);
+
     }
 }
