@@ -2,6 +2,7 @@ package com.RestProject2.example.RestProject2.dao;
 
 import com.RestProject2.example.RestProject2.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +25,16 @@ public class StudentDAOJpiImpl implements StudentDAO {
     }
     @Override
     public List<Student> findAll() {
-        return null;
+
+        // create a query
+        TypedQuery<Student> theQuery = entitymanager.createQuery("from Student", Student.class);
+
+        // execute query and get the result
+        List<Student> student = theQuery.getResultList();
+
+        // return the results
+        return student;
+
+//        return null;
     }
 }
