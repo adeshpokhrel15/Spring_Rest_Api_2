@@ -1,6 +1,6 @@
 package com.RestProject2.example.RestProject2.rest;
 
-import com.RestProject2.example.RestProject2.dao.StudentDAO;
+// import com.RestProject2.example.RestProject2.dao.StudentDAO;
 import com.RestProject2.example.RestProject2.entity.Student;
 import com.RestProject2.example.RestProject2.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +26,7 @@ private StudentService studentService;
     public List<Student> findAll(){
         return studentService.findAll();
     }
+
 
     // add mapping for GET from id
     @GetMapping("/student/{studentId}")
